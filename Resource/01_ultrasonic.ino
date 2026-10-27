@@ -29,17 +29,7 @@ void loop() {
   // Measure how long (in microseconds) the echo pin stays HIGH.
   // 30000 is a timeout so the code never gets stuck if nothing is in range.
   long duration = pulseIn(echoPin, HIGH, 30000);
-
-  if (duration == 0) {
-    Serial.println("Out of range");   // No echo came back
-  } else {
-    // Sound travels 0.0343 cm per microsecond.
-    // We divide by 2 because the sound goes to the object AND back.
-    float distance = duration * 0.0343 / 2;
-    Serial.print("Distance: ");
-    Serial.print(distance);
-    Serial.println(" cm");
-  }
+  float distance = duration * 0.0343 / 2;
 
   delay(500);   // Wait half a second before the next reading
 }
