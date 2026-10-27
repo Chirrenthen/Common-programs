@@ -16,7 +16,7 @@ Arduino Uno:
 • Digital I/O Pins: 14 (6 provide PWM output)
 • Analog Input Pins: 6 (A0 to A5)
 • Clock Speed: 16 MHz
-• Flash Memory: 32 KB (0.5 KB used by bootloader)
+• 32 Flash Memory: 32 KB (0.5 KB used by bootloader)
 • SRAM: 2 KB
 • EEPROM: 1 KB
 • DC Current per I/O Pin: 20 mA (40 mA max on some clone variants like CH340)
@@ -37,13 +37,18 @@ Arduino Uno:
 • Interfaces: SPI, I2C, UART, PWM, I2S, Capacitive Touch
 
 Communication Protocols:
-I2C
-I2S
-SPI
+I2C - Inter-Integrated Circuit (low speed)
+SPI - Serial Peripheral Interface (high speed)
+I2S - Inter-Integrated Circuit Sound
+UART - Universal Asynchronous Receiver-Transmitter
 
 
 Protocol	Purpose	                                 Wires (Minimum)	Duplex	               Architecture	                Speed
 I2C	        General chip-to-chip control & sensors	      2	              Half-duplex	Multi-master, Multi-slave	Slower (up to ~3.4 Mbps)
 SPI	        High-speed data & displays	              4+	      Full-duplex	Single master, Multi-slave	Fast (10–50+ Mbps)
 I2S	        Digital audio streaming	                      3	         Full-duplex / Stream	Single master, Single target	Sample-rate dependent
+UART            hardware communication device and protocol    4+         Full-duplex/Stream   
 
+Digital (0 -> 5v -- Arduino uno) (0 -> 3.3v -- esp32)
+Analog (0 -> 1023 -- Arduino uno) (0 -> 4095 -- esp32)
+PWM (Pulse-width Modulation) ~
