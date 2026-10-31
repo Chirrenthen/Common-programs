@@ -2,7 +2,7 @@
 #include <WebServer.h>
 
 // 1. Define your custom hotspot credentials (No internet required)
-const char* ap_ssid     = "ESP32";
+const char* ap_ssid     = "ESP32robot";
 const char* ap_password = "1234"; // Must be at least 8 characters
 
 // 2. Initialize the web server on Port 80
