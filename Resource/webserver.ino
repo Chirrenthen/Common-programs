@@ -2,8 +2,8 @@
 #include <WebServer.h>
 
 // 1. Define your custom hotspot credentials (No internet required)
-const char* ap_ssid     = "ESP32robot";
-const char* ap_password = "1234"; // Must be at least 8 characters
+const char* ap_ssid     = "ESP32";
+const char* ap_password = "qwertyuiop"; // Must be at least 8 characters
 
 // 2. Initialize the web server on Port 80
 WebServer server(80);
@@ -18,8 +18,8 @@ void moveForward() {
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
 
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
   Serial.println("Direction: FORWARD");
 }
 
@@ -27,8 +27,8 @@ void moveBackward() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
 
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
   Serial.println("Direction: BACKWARD");
 }
 
@@ -36,8 +36,8 @@ void turnLeft() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
 
-  digitalWrite(in1, HIGH);
-  digitalWrite(in2, LOW);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
   Serial.println("Direction: LEFT");
 }
 
@@ -45,8 +45,8 @@ void turnRight() {
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
 
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, HIGH);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
   Serial.println("Direction: RIGHT");
 }
 
@@ -54,8 +54,8 @@ void stopRobot() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
 
-  digitalWrite(in1, LOW);
-  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
   Serial.println("Direction: STOPPED");
 }
 
