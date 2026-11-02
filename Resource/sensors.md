@@ -29,3 +29,4 @@ Internal feedback helps the servo move toward and hold that position; its rotati
 8. ### BO motors — Small geared DC motors commonly used in robots. 
 These small geared DC motors commonly drive robot wheels. 
 Applying voltage turns the motor, and reversing polarity reverses its direction; speed can be adjusted with pulse-width modulation (PWM), usually through a motor driver.
+

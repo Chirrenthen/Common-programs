@@ -37,15 +37,9 @@ void setup() {
 }
 
 void loop() {
-  sensors_event_t accel, gyro, temp;      // Boxes to hold the readings
+  sensors_event_t accel, gyro, temp;      // Boxes to hold the readings all three are needed to be written
   mpu.getEvent(&accel, &gyro, &temp);     // Fill the boxes with fresh data
 
-  // Serial.print("Accel X: ");
-  // Serial.print(accel.acceleration.x);     // Acceleration in m/s^2
-  // Serial.print("  Y: ");
-  // Serial.print(accel.acceleration.y);
-  // Serial.print("  Z: ");
-  // Serial.println(accel.acceleration.z);
 
   float roll_rad = atan2(accel.acceleration.y, accel.acceleration.z);
   float roll_deg = roll_rad * 180.0 / M_PI;
@@ -82,4 +76,28 @@ int right(){
     Serial.print("/n right");
     motor1.run(FORWARD);
     motor2.run(BACKWARD);
+}
+
+// Call testSensor() to print the MPU6050 readings without moving the motors.
+void testSensor() {
+  sensors_event_t accel, gyro, temp;
+  mpu.getEvent(&accel, &gyro, &temp);
+
+  Serial.println("--- MPU6050 Sensor Test ---");
+  Serial.print("Acceleration (m/s^2) X: ");
+  Serial.print(accel.acceleration.x);
+  Serial.print(" Y: ");
+  Serial.print(accel.acceleration.y);
+  Serial.print(" Z: ");
+  Serial.println(accel.acceleration.z);
+
+  Serial.print("Gyroscope (rad/s) X: ");
+  Serial.print(gyro.gyro.x);
+  Serial.print(" Y: ");
+  Serial.print(gyro.gyro.y);
+  Serial.print(" Z: ");
+  Serial.println(gyro.gyro.z);
+
+  Serial.print("Temperature (C): ");
+  Serial.println(temp.temperature);
 }

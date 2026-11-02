@@ -1,3 +1,9 @@
+
+
+// Pin connections:
+// ADXL345: VCC -> breakout board supply voltage, GND -> GND, Vcc-> 3.3
+//          SDA -> Arduino SDA (UNO: A4), SCL -> Arduino SCL (UNO: A5).
+
 #include <Wire.h>               
 #include <Adafruit_ADXL345_U.h> //adxl345 support
 #include <Adafruit_Sensor.h>
@@ -65,4 +71,18 @@ int right(){
     Serial.print("Right");
     motor1.run(FORWARD);
     motor2.run(BACKWARD);
+}
+
+void testSensor() {
+  sensors_event_t event;
+  accelSensor.getEvent(&event);
+
+  Serial.println("\nADXL345 sensor test:");
+  Serial.print("X: ");
+  Serial.print(event.acceleration.x);
+  Serial.print(" m/s^2, Y: ");
+  Serial.print(event.acceleration.y);
+  Serial.print(" m/s^2, Z: ");
+  Serial.print(event.acceleration.z);
+  Serial.println(" m/s^2");
 }
